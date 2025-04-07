@@ -21,7 +21,7 @@ NUM_THREADS = 100
 queue = Queue()
 open_ports = []
 
-# Dictionnaire de ports communs (comme Nmap le fait)
+# Common Ports Dictionary
 common_ports = {
     21: 'FTP',
     22: 'SSH',
@@ -63,7 +63,7 @@ def run_scanner(target):
         t = threading.Thread(target=threader, args=(target,), daemon=True)
         t.start()
 
-    for port in range(1, 1000):  # ports 1 to 999
+    for port in range(1, 1000):  
         queue.put(port)
 
     queue.join()
